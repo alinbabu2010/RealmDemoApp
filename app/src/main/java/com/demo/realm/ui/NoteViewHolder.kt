@@ -8,11 +8,12 @@ class NoteViewHolder(private val binding: NotesRecyclerViewItemBinding) : Recycl
 
     fun bind(note: Notes, onButtonClicks: NoteAdapter.OnButtonClicks?){
 
-        val displayNote = "${note.message}\nAuthor: ${note.author.name} from ${note.author.place}"
+        val author = "Author: ${note.author.name} -- ${note.author.place}"
 
-        with(binding){
+        with(binding) {
 
-            txtViewMessage.text = displayNote
+            txtViewMessage.text = note.message
+            txtViewAuthor.text = author
 
             btnDelete.setOnClickListener {
                 onButtonClicks?.onDeleteClicked(note.id)
