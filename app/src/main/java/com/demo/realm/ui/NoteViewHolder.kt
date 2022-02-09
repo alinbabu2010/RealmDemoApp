@@ -3,7 +3,6 @@ package com.demo.realm.ui
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.realm.databinding.NotesRecyclerViewItemBinding
 import com.demo.realm.models.Notes
-import com.demo.realm.ui.NoteAdapter
 
 class NoteViewHolder(private val binding: NotesRecyclerViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -16,11 +15,11 @@ class NoteViewHolder(private val binding: NotesRecyclerViewItemBinding) : Recycl
             txtViewMessage.text = displayNote
 
             btnDelete.setOnClickListener {
-                onButtonClicks?.onDeleteClicked()
+                onButtonClicks?.onDeleteClicked(note.id)
             }
 
             btnUpdate.setOnClickListener {
-                onButtonClicks?.onUpdateClicked()
+                onButtonClicks?.onUpdateClicked(note)
             }
         }
 

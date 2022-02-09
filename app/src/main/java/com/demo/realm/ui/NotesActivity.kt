@@ -29,12 +29,12 @@ class NotesActivity : AppCompatActivity() {
 
         adapter.onButtonClicks = object : NoteAdapter.OnButtonClicks{
 
-            override fun onUpdateClicked() {
-                showInsertDialog(true)
+            override fun onUpdateClicked(notes: Notes) {
+                showInsertDialog(true, notes)
             }
 
-            override fun onDeleteClicked() {
-                Toast.makeText(this@NotesActivity,"Delete Clicked",Toast.LENGTH_SHORT).show()
+            override fun onDeleteClicked(id: Int) {
+                viewModel.deleteNotes(id)
             }
 
         }
@@ -42,12 +42,6 @@ class NotesActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener {
             showInsertDialog()
         }
-
-        val notesList = mutableListOf<Notes>()
-        for ( i in 1..10){
-            notesList.add(Notes(i,"Sample Note", Author("Jack","San Fransisco")))
-        }
-        adapter.submitList(notesList)
 
     }
 
@@ -60,7 +54,7 @@ class NotesActivity : AppCompatActivity() {
     }
 
 
-    private fun showInsertDialog(isUpdate : Boolean = false){
+    private fun showInsertDialog(isUpdate: Boolean = false, notes: Notes? = null) {
         val dialogViewBinding = NoteDialogBinding.inflate(layoutInflater)
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.apply{

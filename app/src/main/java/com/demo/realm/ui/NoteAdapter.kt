@@ -9,8 +9,8 @@ import com.demo.realm.models.Notes
 class NoteAdapter : ListAdapter<Notes, NoteViewHolder>(NoteDiffUtils()) {
 
     interface OnButtonClicks{
-        fun onUpdateClicked()
-        fun onDeleteClicked()
+        fun onUpdateClicked(notes: Notes)
+        fun onDeleteClicked(id: Int)
     }
 
     var onButtonClicks : OnButtonClicks? = null
