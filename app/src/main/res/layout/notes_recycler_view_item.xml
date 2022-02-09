@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="160dp"
     android:layout_marginTop="8dp"
     app:cardBackgroundColor="@color/purple_200"
     app:cardCornerRadius="8dp"
@@ -16,17 +16,31 @@
             android:id="@+id/txtView_message"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/poppins"
-            android:maxLines="5"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center|start"
+            android:maxLines="3"
             android:minLines="1"
-            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/txtView_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtView_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_update"
